@@ -1,0 +1,13 @@
+{
+  // 隨身密閱 伺服器：保管每份封存檔的伺服器金鑰分片，負責次數／期限／收回與開啟紀錄。
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vault-viewer-server",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-01",
+  "workers_dev": true,
+  "durable_objects": {
+    "bindings": [{ "name": "HUB", "class_name": "Hub" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Hub"] }],
+  "observability": { "enabled": true }
+}
